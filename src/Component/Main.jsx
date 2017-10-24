@@ -12,10 +12,12 @@ class Main extends Component{
 			total: data.length,
 			showButton: false,
 			questionAnswered: false,
-			score: 0
+			score: 0,
+			showQuestion: true
 		}
 		this.updateQuestion = this.updateQuestion.bind(this);
 		this.handleShowButton = this.handleShowButton.bind(this);
+		this.calculateScore = this.calculateScore.bind(this);
 	}
 
 	handleShowButton(){
@@ -23,6 +25,18 @@ class Main extends Component{
             showButton: true,
             questionAnswered: true
 		});
+	}
+
+	calculateScore = () => {
+		let score = 0;
+		const { allQuestions } = this.state;
+		allQuestions.forEach((questionObj) => {
+			if (questionObj.selectedAnswer === questionObj.correct) {
+				score++;
+			}
+		});
+		this.setState({ score, showQuestion: false });
+        console.log(score);
 	}
 	
   updateQuestion(question, preIndex) {
@@ -32,13 +46,30 @@ class Main extends Component{
   }
 
 	render(){
-		let { index, total, allQuestions, answers, correct, showButton, questionAnswered} = this.state;
-		console.log(allQuestions)
+		let { index, total, allQuestions, answers, correct, showButton, questionAnswered, score, showQuestion } = this.state;
+		console.log('allQuestions',allQuestions);
 		return(
 			<div>
-		        <Question index={index} total={total} question={allQuestions[index]} showButton={this.handleShowButton} updateQuestion={this.updateQuestion}/>
+			{
+				showQuestion ?
+		        <Question 
+		          index={index} 
+		          total={total} 
+		          question={allQuestions[index]} 
+		          showButton={this.handleShowButton} 
+		          updateQuestion={this.updateQuestion}
+		          calculateScore={this.calculateScore}
+		        />
+		        :
+		    	<div className="body">
+		    		<p>
+		    		Quiz Successfully Submitted,
+		    		Your score is {score} / {total}
+		    		</p>
+		    	</div>
+		    }    
 			</div>
-			)
+		)
 	}
 }
 export default Main;

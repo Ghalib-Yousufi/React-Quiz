@@ -4,6 +4,12 @@
     margin: 50px;
 }
 
+.body > p{
+	text-align: center;
+	font-weight: bold;
+	font-size: 30px;
+}
+
 .quiz-body{
 	font-weight: bold;
 	font-size: 30px;
@@ -13,7 +19,26 @@
 	text-align: right;
 }
 
+.btn-class > button{
+	padding: 20px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.submit-btn{
+	text-align: center;
+}
+
 .answers{
 	text-align: left;
 	font-size: 25px;
+	background-color: white;
+}
+
+.hover {
+	padding: 0.5rem;
+    border-radius: 5px;
+}
+.hover:hover{
+	background-color: darkgrey;
 }
