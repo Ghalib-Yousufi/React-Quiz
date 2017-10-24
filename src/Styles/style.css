@@ -1,0 +1,19 @@
+.body{
+	background-color: lightgrey;
+    padding: 25px;
+    margin: 50px;
+}
+
+.quiz-body{
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.btn-class{
+	text-align: right;
+}
+
+.answers{
+	text-align: left;
+	font-size: 25px;
+}
