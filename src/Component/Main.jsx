@@ -36,7 +36,6 @@ class Main extends Component{
 			}
 		});
 		this.setState({ score, showQuestion: false });
-        console.log(score);
 	}
 	
   updateQuestion(question, preIndex) {
@@ -46,8 +45,7 @@ class Main extends Component{
   }
 
 	render(){
-		let { index, total, allQuestions, answers, correct, showButton, questionAnswered, score, showQuestion } = this.state;
-		console.log('allQuestions',allQuestions);
+		let { index, total, allQuestions, showButton, score, showQuestion } = this.state;
 		return(
 			<div>
 			{
@@ -56,7 +54,7 @@ class Main extends Component{
 		          index={index} 
 		          total={total} 
 		          question={allQuestions[index]} 
-		          showButton={this.handleShowButton} 
+		          showButton={this.handleShowButton}
 		          updateQuestion={this.updateQuestion}
 		          calculateScore={this.calculateScore}
 		        />

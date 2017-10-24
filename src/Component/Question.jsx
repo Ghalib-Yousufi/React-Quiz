@@ -30,7 +30,6 @@ class Answers extends Component{
     }
 
 	render(){
-		console.log(this.state)
 		const { question } = this.state;
 		const {
 			index,
@@ -43,9 +42,9 @@ class Answers extends Component{
 				    <ul>
 				    {
 				    	question.answers.map((answer, index) => (
-				    	<span key={index} className="hover">
+				    	<span key={answer.replace(' ','')} className="hover">
 				        <label>
-				            <input type="radio" value={index} selected={answer.selectedAnswer === answer.correct} name="options" onClick={this.checkAnswer} />
+				            <input type="radio" value={index} name="options" onClick={this.checkAnswer} />
 				          {answer}
 				        </label>
 				        <br />
