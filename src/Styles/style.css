@@ -2,7 +2,7 @@
 	background-color: lightgrey;
     padding: 25px;
     margin: 50px;
-  	border: 2px solid yellow;
+  	border: 2px solid black;
 }
 
 .body > p{
@@ -42,5 +42,5 @@
     border-radius: 5px;
 }
 .hover:hover{
-	background-color: darkgrey;
+	background-color: lightblue;
 }
